@@ -5,7 +5,7 @@ class Transaction:
             self.account = int(account_number)
             self.value = int(value)
         except ValueError:
-            ValueError(f'Os valores account_number e balance precisam ser inteiros.')
+            raise ValueError(f'Os valores account_number e balance precisam ser inteiros.')
 
     def __repr__(self):
         return f'transaction - account {self.account}'

@@ -1,6 +1,7 @@
 import csv
 import os
 
+
 class File:
     @staticmethod
     def read_csv(path):
