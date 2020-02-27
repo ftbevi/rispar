@@ -1,9 +1,11 @@
 import unittest
+import os
 
 from src.models.account import Account
 from src.models.file import File
 from src.models.transaction import Transaction
 
+CSV_FOLDER = os.path.join(os.path.dirname(__file__), 'csv')
 
 class TestAccount(unittest.TestCase):
     def setUp(self):
@@ -29,7 +31,6 @@ class TestAccount(unittest.TestCase):
         self.assertEqual(account.balance, -600)
 
     def test_create_accounts_list(self):
-        rows = File.read_csv(
-            'C:\\Users\\DataInfo\\Documents\\projetos\\Rispar\\rispar\\tests\\csv\\accounts.csv')
+        rows = File.read_csv(f'{CSV_FOLDER}/accounts.csv')
         accounts = Account.create_accounts_list(rows)
         self.assertEqual(len(accounts), 2)

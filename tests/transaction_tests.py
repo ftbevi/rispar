@@ -1,9 +1,11 @@
 import unittest
+import os
 
 from src.models.account import Account
 from src.models.file import File
 from src.models.transaction import Transaction
 
+CSV_FOLDER = os.path.join(os.path.dirname(__file__), 'csv')
 
 class TestTransaction(unittest.TestCase):
     def setUp(self):
@@ -16,8 +18,7 @@ class TestTransaction(unittest.TestCase):
             Transaction('345', '')
 
     def test_create_transaction_list(self):
-        rows = File.read_csv(
-            'C:\\Users\\DataInfo\\Documents\\projetos\\Rispar\\rispar\\tests\\csv\\transactions.csv')
+        rows = File.read_csv(f'{CSV_FOLDER}/transactions.csv')
         transactions = Transaction.create_transaction_list(rows)
         self.assertEqual(len(transactions), 4)
 
