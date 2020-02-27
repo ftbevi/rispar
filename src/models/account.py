@@ -1,10 +1,4 @@
-from decimal import Decimal
 import os
-
-PROJECT_FOLDER = os.path.dirname(os.path.dirname(
-    os.path.dirname(os.path.abspath(__file__))))
-BALANCE_FOLDER = os.path.join(PROJECT_FOLDER, 'balances')
-
 
 class Account:
 
@@ -25,11 +19,10 @@ class Account:
                 self.negative_balance_fine()
 
     def negative_balance_fine(self):
-        self.balance += -5
+        self.balance += -500
 
     def show_balance(self):
-        with open(f'{BALANCE_FOLDER}/account{self.number}.csv', 'a') as f:
-            print(f'{self.number},{self.balance}', file=f)
+            print(f'{self.number},{self.balance}')
 
     @staticmethod
     def create_accounts_list(rows):
