@@ -9,6 +9,7 @@ autopep8 = "*"
 ipython = "*"
 
 [packages]
+ipdb = "*"
 
 [requires]
 python_version = "3.8"
