@@ -1,5 +1,5 @@
+from decimal import Decimal
 import os
-from datetime import datetime
 
 PROJECT_FOLDER = os.path.dirname(os.path.dirname(
     os.path.dirname(os.path.abspath(__file__))))
@@ -13,7 +13,7 @@ class Account:
             self.number = int(number)
             self.balance = int(balance)
         except ValueError:
-            raise f'Os valores number e balance precisam ser inteiros.'
+            raise ValueError(f'Os valores number e balance precisam ser inteiros.')
 
     def __repr__(self):
         return f'account - nº {self.number}'
@@ -28,7 +28,7 @@ class Account:
         self.balance += -5
 
     def show_balance(self):
-        with open(f'{BALANCE_FOLDER}/conta_{self.number}.csv', 'a') as f:
+        with open(f'{BALANCE_FOLDER}/account{self.number}.csv', 'a') as f:
             print(f'{self.number},{self.balance}', file=f)
 
     @staticmethod
