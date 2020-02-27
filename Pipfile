@@ -7,9 +7,9 @@ verify_ssl = true
 pylint = "*"
 autopep8 = "*"
 ipython = "*"
+ipdb = "*"
 
 [packages]
-ipdb = "*"
 
 [requires]
 python_version = "3.8"

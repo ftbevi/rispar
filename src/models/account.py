@@ -1,10 +1,4 @@
 import os
-from datetime import datetime
-
-PROJECT_FOLDER = os.path.dirname(os.path.dirname(
-    os.path.dirname(os.path.abspath(__file__))))
-BALANCE_FOLDER = os.path.join(PROJECT_FOLDER, 'balances')
-
 
 class Account:
 
@@ -13,7 +7,7 @@ class Account:
             self.number = int(number)
             self.balance = int(balance)
         except ValueError:
-            raise f'Os valores number e balance precisam ser inteiros.'
+            raise ValueError(f'Os valores number e balance precisam ser inteiros.')
 
     def __repr__(self):
         return f'account - nº {self.number}'
@@ -25,11 +19,10 @@ class Account:
                 self.negative_balance_fine()
 
     def negative_balance_fine(self):
-        self.balance += -5
+        self.balance += -500
 
     def show_balance(self):
-        with open(f'{BALANCE_FOLDER}/conta_{self.number}.csv', 'a') as f:
-            print(f'{self.number},{self.balance}', file=f)
+        print(f'{self.number},{self.balance}')
 
     @staticmethod
     def create_accounts_list(rows):
