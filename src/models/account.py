@@ -22,7 +22,7 @@ class Account:
         self.balance += -500
 
     def show_balance(self):
-            print(f'{self.number},{self.balance}')
+        print(f'{self.number},{self.balance}')
 
     @staticmethod
     def create_accounts_list(rows):
